@@ -1,61 +1,66 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 package com.example;
 
+import java.io.PrintStream;
+
 public class Estudiante {
+   private String nombre;
+   private int edad;
+   private Double promedio;
 
-    private String nombre;
-    private int edad;
-    private int promedio;
+   public Estudiante() {
+      this.nombre = "Desconocido";
+      this.edad = 0;
+      this.promedio = (double)0.0F;
+   }
 
-    public Estudiante() {
-        nombre = "dani";
-        edad = 34;
-        promedio = 54;
-    }
+   public Estudiante(String nombre, int edad, Double promedio) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.promedio = promedio;
+   }
 
-    public Estudiante(String nombre, int edad, int promedio) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.promedio = promedio;
-    }
+   public String getNombre() {
+      return this.nombre;
+   }
 
-    public String getNombre() {
-        return nombre;
-    }
+   public void setNombre(String nombre) {
+      this.nombre = nombre;
+   }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+   public int getEdad() {
+      return this.edad;
+   }
 
-    public int getEdad() {
-        return edad;
-    }
+   public void setEdad(int edad) {
+      if (edad > 0) {
+         this.edad = edad;
+      } else {
+         System.out.println("La edad no puede ser negativa.");
+      }
 
-    public void setEdad(int edad) {
-        if (edad > 0) {
-            System.out.println("edad invalida");
-        } else {
-            this.edad = edad;
-        }
-    }
+   }
 
-    public boolean haAprobado() {
-        if (promedio >= 3.0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+   public Double getPromedio() {
+      return this.promedio;
+   }
 
-    public void mostrarInfo(){
-        System.out.println("tu nombre es: " + nombre + "\ntu edad es: " + edad + "\ntu promedio es: " + promedio + "\n¿estas aprobado?: " + haAprobado());
-    }
+   public void setPromedio(Double promedio) {
+      this.promedio = promedio;
+   }
 
-    public int getPromedio() {
-        return promedio;
-    }
+   public boolean haAprobado() {
+      return this.promedio >= (double)3.0F;
+   }
 
-    public void setPromedio(int promedio) {
-        this.promedio = promedio;
-    }
-
+   public void mostrarInfo() {
+      String var10001 = this.nombre;
+      System.out.println("Nombre: " + var10001);
+      int var1 = this.edad;
+      System.out.println("Edad: " + var1);
+      PrintStream var10000 = System.out;
+      String var2 = String.valueOf(this.promedio);
+      var10000.println("Promedio: " + var2);
+      System.out.println(this.promedio >= (double)3.0F ? "Aprobado" : "Reprobado");
+   }
 }
